@@ -123,6 +123,131 @@
             </article>
             
         </section>
+
+        <form action="/subir-informe" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="titulo"><h1>PARCIAL INTELIGENCIA ARTIFICIAL</h1></label>
+                <div class="form-group">
+                    <div class="container mt-3"></div>
+                        <h4>Punto 3</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-6">
+                                    <img src="./DFSGRUPO1.png" class="card-img-top" alt="Descripción de la imagen 2">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Primer laberinto con DfS</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-6">
+                                    <img src="./BFSGRUPO1.png" class="card-img-top" alt="Descripción de la imagen 2">
+                                    <div class="card-body">
+                                      <h6 class="card-title">Primer laberinto con BfS</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-6">
+                                    <img src="./DFSGRUPO2.png" class="card-img-top" alt="Descripción de la imagen 2">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Segundo laberinto con DfS</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-6">
+                                    <img src="./BFSGRUPO2.png" class="card-img-top" alt="No encontrado">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Segundo laberinto con BfS</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+            </div>
+            <div class="form-group">
+
+                <div class="container mt-5">
+                    <h2>Tabla</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>DFS</th>
+                                <th>BFS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>LABERINTO1</td>
+                                <td>181</td>
+                                <td>1278</td>
+                            </tr>
+                            <tr>
+                                <td>LABERINTO2</td>
+                                <td>298</td>
+                                <td>1197</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+            </div>
+        </form>
+    </div>
+
+    <section>
+        <h2>Resumen del Código punto 4 </h2>
+        <ol>
+            <li><strong>Importaciones de bibliotecas:</strong><br>
+                <code>import tensorflow as tf</code><br>
+                <code>import numpy as np</code><br>
+                Se importan las bibliotecas TensorFlow y NumPy. TensorFlow es popular para el aprendizaje automático y la creación de redes neuronales, mientras que NumPy se utiliza para trabajar con arreglos y cálculos numéricos.
+            </li>
+            <li><strong>Creación de arreglos:</strong><br>
+                <code>celsius = np.array([-40, -10, 0, 8, 15, 22, 38], dtype=float)</code><br>
+                <code>fahrenheit = np.array([-40, 14, 32, 59, 72, 100], dtype=float)</code><br>
+                Se crean dos arreglos de NumPy: celsius (temperaturas en Celsius) y fahrenheit (temperaturas en Fahrenheit). El parámetro <code>dtype=float</code> asegura que los elementos sean flotantes.
+            </li>
+            <li><strong>Definición de una capa de la red neuronal:</strong><br>
+                <code>capa = tf.keras.layers.Dense(units=1, input_shape=[1])</code><br>
+                Se define una capa densa con una sola neurona de salida. <code>input_shape=[1]</code> especifica que la entrada será un solo valor.
+            </li>
+            <li><strong>Creación del modelo:</strong><br>
+                <code>modelo = tf.keras.Sequential([capa])</code><br>
+                Se crea un modelo secuencial que contiene la capa definida anteriormente.
+            </li>
+            <li><strong>Compilación del modelo:</strong><br>
+                <code>modelo.compile(optimizer=tf.keras.optimizers.Adam(0.1), loss='mean_squared_error')</code><br>
+                Se compila el modelo con el optimizador Adam y se establece la función de pérdida como error cuadrático medio (MSE).
+            </li>
+            <li><strong>Inicio del entrenamiento:</strong><br>
+                <code>print("Comenzando entrenamiento...")</code><br>
+                Se imprime un mensaje indicando que el entrenamiento está a punto de comenzar.
+            </li>
+            <li><strong>Entrenamiento del modelo:</strong><br>
+                <code>historial = modelo.fit(celsius, fahrenheit, epochs=1000, verbose=False)</code><br>
+                El modelo se entrena durante 1000 épocas con los datos de celsius y fahrenheit.
+            </li>
+            <li><strong>Finalización del entrenamiento:</strong><br>
+                <code>print("Modelo entrenado!")</code><br>
+                Se imprime un mensaje indicando que el modelo ha terminado de entrenarse.
+            </li>
+            <li><strong>Predicción:</strong><br>
+                <code>resultado = modelo.predict([100.0])</code><br>
+                Se realiza una predicción para 100 grados Celsius, y el resultado se almacena en la variable resultado.
+            </li>
+            <li><strong>Impresión del resultado:</strong><br>
+                <code>print("El resultado es " + str(resultado) + " fahrenheit!")</code><br>
+                Se imprime el resultado de la predicción.
+            </li>
+        </ol>
+        <p>En resumen, este fragmento de código establece un modelo de red neuronal simple que predice temperaturas en Fahrenheit a partir de temperaturas en Celsius y muestra el resultado en la consola.</p>
+    </section>
     </div>
 </body>
 </html>
